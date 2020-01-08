@@ -4,13 +4,13 @@
 #
 Name     : perl-Net-Bluetooth
 Version  : 0.41
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/A/AD/ADDUTKO/Net-Bluetooth-0.41.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AD/ADDUTKO/Net-Bluetooth-0.41.tar.gz
 Summary  : unknown
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-1.0+
-Requires: perl-Net-Bluetooth-lib = %{version}-%{release}
+Requires: perl-Net-Bluetooth-perl = %{version}-%{release}
 BuildRequires : bluez-dev
 BuildRequires : buildreq-cpan
 
@@ -33,7 +33,6 @@ ppm install http://www.conditor.com/Net-Bluetooth.ppd
 %package dev
 Summary: dev components for the perl-Net-Bluetooth package.
 Group: Development
-Requires: perl-Net-Bluetooth-lib = %{version}-%{release}
 Provides: perl-Net-Bluetooth-devel = %{version}-%{release}
 Requires: perl-Net-Bluetooth = %{version}-%{release}
 
@@ -41,22 +40,24 @@ Requires: perl-Net-Bluetooth = %{version}-%{release}
 dev components for the perl-Net-Bluetooth package.
 
 
-%package lib
-Summary: lib components for the perl-Net-Bluetooth package.
-Group: Libraries
+%package perl
+Summary: perl components for the perl-Net-Bluetooth package.
+Group: Default
+Requires: perl-Net-Bluetooth = %{version}-%{release}
 
-%description lib
-lib components for the perl-Net-Bluetooth package.
+%description perl
+perl components for the perl-Net-Bluetooth package.
 
 
 %prep
 %setup -q -n Net-Bluetooth-0.41
+cd %{_builddir}/Net-Bluetooth-0.41
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -66,7 +67,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -86,12 +87,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Net/Bluetooth.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Net::Bluetooth.3
 
-%files lib
+%files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Net/Bluetooth/Bluetooth.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Net/Bluetooth.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/Net/Bluetooth/Bluetooth.so

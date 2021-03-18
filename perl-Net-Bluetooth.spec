@@ -4,7 +4,7 @@
 #
 Name     : perl-Net-Bluetooth
 Version  : 0.41
-Release  : 4
+Release  : 5
 URL      : https://cpan.metacpan.org/authors/id/A/AD/ADDUTKO/Net-Bluetooth-0.41.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AD/ADDUTKO/Net-Bluetooth-0.41.tar.gz
 Summary  : unknown
@@ -94,5 +94,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Net/Bluetooth.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/auto/Net/Bluetooth/Bluetooth.so
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Net/Bluetooth.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/auto/Net/Bluetooth/Bluetooth.so

@@ -5,7 +5,7 @@
 #
 Name     : perl-Net-Bluetooth
 Version  : 0.41
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/A/AD/ADDUTKO/Net-Bluetooth-0.41.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AD/ADDUTKO/Net-Bluetooth-0.41.tar.gz
 Summary  : unknown
